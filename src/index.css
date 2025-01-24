@@ -1,6 +1,7 @@
 .content-grid {
     display: grid;
-    
+    grid-template-columns: repeat(3, 4fr);
+    gap: 6px;
 }
 
 .thumbnail {

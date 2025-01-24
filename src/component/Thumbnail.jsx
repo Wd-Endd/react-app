@@ -1,10 +1,8 @@
 function Thumbnail(props) {
     return (
         <div class="thumbnail">
-            <img src={props.img}/>
-            <div>
-                <label>{props.title}</label>
-            </div>
+            <img src={props.img} alt=""/>
+            <label>{props.title}</label>
         </div>
     );
 }

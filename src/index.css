@@ -9,8 +9,11 @@
     flex-direction: column;
     width: 300px;
     aspect-ratio:  16 / 9;
+    gap: 10px;
 }
 
-.thumnail div {
-    min-height: 40px;
+.thumnail label {
+    align-items: center;
+    text-align: center;
+    justify-items: center;
 }

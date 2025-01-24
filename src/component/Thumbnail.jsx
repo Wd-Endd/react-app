@@ -1,9 +1,9 @@
 function Thumbnail(props) {
     return (
         <div class="thumbnail">
-            <img src={props.pic}"/>
+            <img src={props.img}/>
             <div>
-                <label>Title</label>
+                <label>{props.title}</label>
             </div>
         </div>
     );

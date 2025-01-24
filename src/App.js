@@ -1,4 +1,4 @@
-import { } from "../.api.js";
+import { beautifulThumb } from "../.api.js";
 import Thumnail from "./component/Thumbnail";
 
 function App() {

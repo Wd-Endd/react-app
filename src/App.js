@@ -1,8 +1,11 @@
-import './App.css';
+import Thumnail from "./component/Thumbnail";
 
 function App() {
   return (
-    <h1>Hello, World!</h1>
+    <div>
+      <Thumnail />
+      <Thumnail />
+    </div>
   );
 }
 

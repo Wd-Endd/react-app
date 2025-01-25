@@ -3,8 +3,22 @@
     height: 64px;
     background-color: #ccc;
     border-radius: 100rem;
+    padding: 12px;
+    cursor: pointer;
 }
 
 .toggle .spinner {
+    height: 100%;
+    aspect-ratio: 1/1;
+    background-color: #fff;
+    border-radius: 100rem;
+    transition: all 0.2s linear;
+}
 
+.toggle.active  {
+    background-color: rgb(0, 110, 255);
+}
+
+.toggle.active .spinner  {
+    transform: translateX(100%);
 }

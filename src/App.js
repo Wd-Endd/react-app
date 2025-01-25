@@ -8,6 +8,10 @@ function App() {
 
       <Toggle />
 
+      <div style={{
+        height: "10px"
+      }}></div>
+
       <div className="content-grid">
         {beautifulThumb.map(item => (
           <Thumnail

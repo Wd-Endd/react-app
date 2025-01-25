@@ -1,3 +1,7 @@
+.toggle > * {
+    cursor: pointer;
+}
+
 .toggle {
     width: 200px;
     height: 64px;
@@ -5,7 +9,6 @@
     border-radius: 100rem;
     padding: 12px;
     transition: all 0.2s linear;
-    cursor: pointer;
 }
 
 .toggle .spinner {

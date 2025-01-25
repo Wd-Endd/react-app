@@ -9,6 +9,10 @@
     padding: 6px;
 }
 
-.caro-board cell {
+.caro-board .cell {
     background-color: aliceblue;
+}
+
+.caro-board .cell > * {
+    cursor: pointer;
 }

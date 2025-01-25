@@ -6,6 +6,8 @@ function App() {
   return (
     <div>
 
+      <Toggle />
+
       <div className="content-grid">
         {beautifulThumb.map(item => (
           <Thumnail
@@ -16,7 +18,6 @@ function App() {
         ))}
       </div>
 
-      <Toggle />
     </div>
   );
 }

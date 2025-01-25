@@ -1,0 +1,10 @@
+.toggle {
+    width: 200px;
+    height: 64px;
+    background-color: #ccc;
+    border-radius: 100rem;
+}
+
+.toggle .spinner {
+
+}

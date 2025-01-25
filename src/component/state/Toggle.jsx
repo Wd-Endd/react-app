@@ -8,7 +8,7 @@ function Toggle() {
     // console.log(on);
 
     return (
-        <div className={`toggle ${on? active}`} onClick={() => setOn(!on? true : false)}>
+        <div className={`toggle${on? " active" : ""}`} onClick={() => setOn(!on? true : false)}>
             <div className="spinner"></div>
         </div>
     )

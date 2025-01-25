@@ -10,4 +10,12 @@
 .game-board .cell {
     cursor: pointer;
     border: 1px solid black;
+    padding: 10px;
 }
+
+.game-board .cell .checker {
+    width: 100%;
+    height: 100%;
+    background-color: red;
+}
+

@@ -1,12 +1,12 @@
 import { beautifulThumb } from "./.api";
-import CaroBoard from "./component/CaroBoard";
 import Toggle from "./component/state/Toggle";
 import Thumnail from "./component/Thumbnail";
+import GameBoard from "./component/tictactoe/GameBoard";
 
 function App() {
   return (
     <div>
-      <CaroBoard />
+      <GameBoard />
 
       <div style={{ height: "200px"}}></div>
 

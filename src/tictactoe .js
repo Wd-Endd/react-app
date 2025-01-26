@@ -20,9 +20,11 @@ export function winCalc(cells) {
        [ 2, 4, 6 ],
    ];
 
-   winConditions.forEach(([a, b, c]) => {
-    if (cells[a] && cells[a] === cells[b] && cells[a] === cells[c]) {
+   for (let i = 0; i < winConditions.length; i++) {
+       const [a, b, c] = winConditions[i];
+
+       if (cells[a] && cells[a] === cells[b] && cells[a] === cells[c]) {
         return cells[a];
-    }
-   })
+       }
+   }
 }

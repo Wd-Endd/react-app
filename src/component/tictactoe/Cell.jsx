@@ -10,9 +10,12 @@ function Cell() {
             setOn(true);
             turner.toggleState();
         } : () => { console.log("Cannot tick again.")} }>
-            { on? <div className={
-                `checker ${turner? "red" : "blue"}`
-            }></div> : "" }
+            {
+                on? (
+                    turner.state? <img src="https://www.svgrepo.com/download/12848/x-symbol.svg" alt="" className="checker red" />
+                    : <img src="https://www.svgrepo.com/download/396905/letter-o.svg" alt="" className="checker blue" />
+                ) : <div></div>
+            }
         </div>
     )
 }

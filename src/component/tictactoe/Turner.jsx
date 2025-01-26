@@ -1,8 +1,13 @@
+import { turner } from "../../tictactoe ";
 import "./index.css";
 
+
 function Turner() {
-    return (
-        <div className="turner"></div>
+    if (turner.state) return (
+        <div className="turner red"></div>
+    )
+    else return (
+        <div className="turner red"></div>
     )
 }
 

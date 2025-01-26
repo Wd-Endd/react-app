@@ -1,10 +1,16 @@
 export const turner = {
-    state: false,
+    state: "X",
     toggleState() {
-        this.state = !this.state;
-        console.log(this.state);
+        this.state === "X"? this.state = "O"
+        : this.state = "X"
     }
 }
+
+export const board = [
+    null, null, null,
+    null, null, null,
+    null, null, null,
+];
 
 export function winCalc(cells) {
     const winConditions = [
@@ -28,3 +34,10 @@ export function winCalc(cells) {
        }
    }
 }
+
+export const endGame = [
+    false,
+    function () {
+        this[0] = !this[0];
+    },
+];

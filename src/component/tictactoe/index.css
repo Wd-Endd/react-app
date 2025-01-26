@@ -16,6 +16,18 @@
 .game-board .cell .checker {
     width: 100%;
     height: 100%;
+}
+
+.game-board .cell .checker.red {
     background-color: red;
 }
 
+.game-board .cell .checker.blue {
+    background-color: blue;
+}
+
+.turner {
+    height: 100px;
+    aspect-ratio: 1/1;
+    border: 1px solid black;
+}

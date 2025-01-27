@@ -20,13 +20,24 @@ function Cell(props) {
         };
     }
 
+    function handleClick() {
+        if (endGame[0]) {
+            console.log("Game Over, please reset game");
+            return;
+        }
+
+        if (on) {
+            console.log("Cannot tick again, please tick another cell");
+            return;
+        }
+
+        setOn(true);
+        turner.toggleState();
+        tick(turner.state);
+    }
+
     return (
-        <div className="cell" onClick={!winCalc(board)? ( !endGame[0]? () => {
-            setOn(true);
-            turner.toggleState();
-            tick(turner.state);
-        } : () => { console.log("Cannot tick again.")} )
-        : console.log("Cannot tick when won, please reset game")}>
+        <div className="cell" onClick={handleClick}>
             {
                 on? (
                     turner.state === "X"? <img src="https://www.svgrepo.com/download/12848/x-symbol.svg" alt="" className="checker red" />

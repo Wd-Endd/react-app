@@ -2,6 +2,7 @@ import { beautifulThumb } from "./.api";
 import Toggle from "./component/state/Toggle";
 import Thumnail from "./component/Thumbnail";
 import GameBoard from "./component/tictactoe/GameBoard";
+import GameOver from "./component/tictactoe/GameOver";
 import ResetButton from "./component/tictactoe/ResetButton";
 // import Turner from "./component/tictactoe/Turner";
 
@@ -15,7 +16,7 @@ function App() {
         <GameBoard />
         {/* <Turner /> */}
         <div style={{ display: "flex", flexDirection: "column", marginLeft: "100px" }}>
-          <GameOver
+          <GameOver />
           <div style={{ height: "10px" }}></div>
           <ResetButton />
         </div>

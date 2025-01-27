@@ -2,7 +2,7 @@ import "./index.css";
 
 function ResetButton() {
     return (
-        <div className="reset-button"><label>Reset Game</label></div>
+        <button className="reset-button"><label>Reset Game</label></button>
     )
 }
 

@@ -14,7 +14,11 @@ function App() {
       }}>
         <GameBoard />
         {/* <Turner /> */}
-        <ResetButton />
+        <div style={{ display: "flex", flexDirection: "column", marginLeft: "100px" }}>
+          <GameOver
+          <div style={{ height: "10px" }}></div>
+          <ResetButton />
+        </div>
       </div>
 
       <div style={{ height: "200px"}}></div>

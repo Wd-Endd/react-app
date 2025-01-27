@@ -26,7 +26,7 @@
 .reset-button {
     display: flex;
     flex-direction: row;
-    margin-left: 100px;
+    /* margin-left: 100px; */
     height: 50px;
     width: 200px;
     border: 1px solid black;
@@ -34,7 +34,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-color: #ccc;
+    background-color: #eee;
     box-shadow: 5px 5px 5px 2px black;
     transition: all 0.3s linear;
 }
@@ -48,10 +48,10 @@
     box-shadow: 0px 0px 5px 2px black;
     transform: translate(5px, 5px);
 }
-
+/* 
 .reset-button:hover label::before {
     content: ";-;";
-    /* background-image: url(https://www.svgrepo.com/download/343263/reset.svg);
+    background-image: url(https://www.svgrepo.com/download/343263/reset.svg);
     background-size: cover;
-    background-repeat: no-repeat; */
-}
+    background-repeat: no-repeat;
+} */

@@ -1,45 +1,5 @@
-export const turner = {
-    state: "X",
-    toggleState() {
-        this.state === "X"? this.state = "O"
-        : this.state = "X"
-    }
-}
-
-export const board = [
+export const gameBoard = [
     null, null, null,
     null, null, null,
     null, null, null,
-];
-
-export function winCalc(cells) {
-    const winConditions = [
-       [ 0, 1, 2 ],
-       [ 3, 4, 5 ],
-       [ 6, 7, 8 ],
-   
-       [ 0, 3, 6 ],
-       [ 1, 4, 7 ],
-       [ 2, 5, 8 ],
-   
-       [ 0, 4, 8 ],
-       [ 2, 4, 6 ],
-   ];
-
-   for (let i = 0; i < winConditions.length; i++) {
-       const [a, b, c] = winConditions[i];
-
-       if (cells[a] && cells[a] === cells[b] && cells[a] === cells[c]) {
-        return cells[a];
-       }
-   }
-}
-
-export const endGame = [
-    false,
-    function () {
-        this[0] = !this[0];
-        console.log(this);
-        // re-render GameOver component method 
-    },
 ];

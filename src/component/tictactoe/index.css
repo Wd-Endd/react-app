@@ -19,6 +19,7 @@
 .game-board .cell .checker {
     width: 80%;
     height: 80%;
+    border: 1px solid black;
 }
 
 .reset-button > * { cursor: pointer; }

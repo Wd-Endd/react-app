@@ -31,7 +31,6 @@ function Cell(props) {
             return;
         }
 
-        setOn(true);
         turner.toggleState();
         tick(turner.state);
     }
@@ -39,10 +38,17 @@ function Cell(props) {
     return (
         <div className="cell" onClick={handleClick}>
             {
-                on? (
-                    turner.state === "X"? <img src="https://www.svgrepo.com/download/12848/x-symbol.svg" alt="" className="checker red" />
-                    : <img src="https://www.svgrepo.com/download/396905/letter-o.svg" alt="" className="checker blue" />
-                ) : <div></div>
+                if (board[index]) {
+                    if (board[index] === "X") {
+                        return (
+                            <img src="https://www.svgrepo.com/download/12848/x-symbol.svg" alt="" className="checker red" />
+                        )
+                    } else if (board[index] === "X"){
+                        return (
+                            <img src="https://www.svgrepo.com/download/396905/letter-o.svg" alt="" className="checker blue" />
+                        )
+                    }
+                }
             }
         </div>
     )

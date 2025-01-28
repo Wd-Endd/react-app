@@ -9,8 +9,9 @@ function App() {
       <div style={{
         display: "flex",
         flexDirection: "rows",
+        padding: "50px",
       }}>
-        {/* <GameBoard /> */}
+        <GameBoard />
         <div style={{ display: "flex", flexDirection: "column", marginLeft: "100px" }}>
           <div style={{ height: "10px" }}></div>
         </div>

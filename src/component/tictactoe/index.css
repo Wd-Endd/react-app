@@ -1,58 +1,16 @@
 .game-board {
-    width: 500px;
-    aspect-ratio: 1/1;
-    border: 1px solid black;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-}
-
-.game-board .cell {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    border: 1px solid black;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    width: 500px;
+    height: 500px;
+    /* border: 1px solid black; */
+    gap: 10px;
     padding: 10px;
 }
 
-.game-board .cell .checker {
-    width: 80%;
-    height: 80%;
-    border: 1px solid black;
+.cell {
+    background-color: #f9f9f9;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1),
+        -10px -10px 10px #ffffff55;
 }
-
-.reset-button > * { cursor: pointer; }
-
-.reset-button {
-    display: flex;
-    flex-direction: row;
-    /* margin-left: 100px; */
-    height: 50px;
-    width: 200px;
-    border: 1px solid black;
-    border-radius: 25px;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background-color: #eee;
-    box-shadow: 5px 5px 5px 2px black;
-    transition: all 0.3s linear;
-}
-
-.reset-button:hover {
-    color: white;
-    background-color: #0a7e00;
-}
-
-.reset-button:active {
-    box-shadow: 0px 0px 5px 2px black;
-    transform: translate(5px, 5px);
-}
-/* 
-.reset-button:hover label::before {
-    content: ";-;";
-    background-image: url(https://www.svgrepo.com/download/343263/reset.svg);
-    background-size: cover;
-    background-repeat: no-repeat;
-} */

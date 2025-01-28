@@ -25,4 +25,13 @@ export const beautifulThumb = [
         img: "https://4kwallpapers.com/images/walls/thumbs_3t/424.jpg",
         title: "FBI",
     },
+    { img: "https://wallpapercave.com/wp/wp4747958.jpg" },
+    { img: "https://wallpapercave.com/wp/wp5286580.jpg" },
+    { img: "https://wallpapercave.com/wp/wp5114759.jpg" },
+    { img: "https://wallpapercave.com/wp/wp4747935.jpg" },
+    { img: "https://wallpapercave.com/wp/wp5114751.jpg" },
+    { img: "https://wallpapercave.com/wp/wp5286596.png" },
+    { img: "https://wallpapercave.com/wp/wp5114741.jpg" },
+    { img: "https://wallpapercave.com/wp/wp5286624.jpg" },
+    { img: "https://wallpapercave.com/wp/wp3056697.jpg" },
 ];

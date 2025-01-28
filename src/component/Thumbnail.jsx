@@ -3,7 +3,7 @@ function Thumbnail(props) {
     return (
         <div className="thumbnail">
             <img src={ props.img || baseImg } alt=""/>
-            <label>{ props.title || "Veera" }</label>
+            <label>{ props.title || ";-;" }</label>
         </div>
     );
 }

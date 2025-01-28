@@ -39,5 +39,7 @@ export const endGame = [
     false,
     function () {
         this[0] = !this[0];
+        console.log(this);
+        // re-render GameOver component method 
     },
 ];

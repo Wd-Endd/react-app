@@ -2,6 +2,7 @@ import React, { createContext, useState } from 'react'
 import GameBoard from "./GameBoard"
 import ResetButton from './ResetButton'
 import { gameBoard } from '../../tictactoe ';
+import WinnerTitle from './WinnerTitle';
 
 const GameContext = createContext();
 
@@ -24,6 +25,8 @@ export default function Game() {
                 <div style={{ display: "flex", flexDirection: "column", marginLeft: "100px" }}>
                     <div style={{ height: "10px" }}></div>
                     <ResetButton />
+                    <div style={{ height: "10px" }}></div>
+                    <WinnerTitle />
                 </div>
             </div>
         </GameContext.Provider>

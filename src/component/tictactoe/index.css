@@ -16,7 +16,7 @@
     align-items: center;
     background-color: #f9f9f9;
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1),
-        -10px -10px 10px #ffffff55;
+        -10px -10px 10px #fcfcfc55;
     border: 1px solid transparent;
     transition: all 0.3s linear;
 }
@@ -28,10 +28,10 @@
 .reset-button {
     height: 64px;
     width: 200px;
-    background-color: #f9f9f9;
     border: none;
+    background-color: #f9f9f9;
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1),
-        -10px -10px 10px #ffffff55;
+        -10px -10px 10px #fcfcfc55;
     border: 1px solid transparent;
     transition: all 0.3s linear;
 
@@ -39,4 +39,23 @@
 
 .reset-button:hover {
     border: 1px solid black;
+}
+
+.winner-title {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    height: 32px;
+    width: cover;
+    background-color: #f9f9f9;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1),
+        -10px -10px 10px #fcfcfc55;
+    
+    transition: all 0.6s linear;
+}
+
+.winner-title.hidden {
+    opacity: 0;
+    transform: translate(300px, 0);
 }

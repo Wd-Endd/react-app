@@ -12,6 +12,7 @@ export default function Cell(props) {
 
     return (
         <div className="cell" onClick={() => {
+            if (winner) { console.log("Game Over, reset game to continue play"); return}
             if (board[index]) { console.log("ticked, cannot tick again"); return }
             const newBoard = [...board];
             newBoard[index] = ticker;

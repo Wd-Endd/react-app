@@ -4,10 +4,11 @@ import { gameBoard } from '../../tictactoe '
 
 
 export default function ResetButton() {
-    const { updateBoard } = useContext(GameContext)
+    const { updateBoard, setWinner } = useContext(GameContext);
     return (
         <button className="reset-button" onClick={() => {
             updateBoard(gameBoard);
+            setWinner(null);
         }}>
             Reset Game
         </button>

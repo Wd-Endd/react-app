@@ -8,7 +8,7 @@ export default function Cell(props) {
     const {
         // board, updateBoard,
         // winner, setWinner
-        state, setState,
+        state, disPatch,
     } = useContext(GameContext);
 
     return (
@@ -22,10 +22,11 @@ export default function Cell(props) {
             //     gameBoard[3], gameBoard[4], gameBoard[5], "\n",
             //     gameBoard[6], gameBoard[7], gameBoard[8],
             // );
-            setState({
-                ...state,
-                board: newBoard,
-            });
+            // setState({
+            //     ...state,
+            //     board: newBoard,
+            // });
+            disPatch({ type: "updateBoard", to: newBoard});
             console.log(
                 newBoard[0], newBoard[1], newBoard[2], "\n",
                 newBoard[3], newBoard[4], newBoard[5], "\n",
@@ -34,10 +35,11 @@ export default function Cell(props) {
 
             toggleTicker();
             console.log(`This time to tick ${ticker}`);
-            setState({
-                ...state,
-                winner: winCalc(newBoard),
-            });
+            // setState({
+            //     ...state,
+            //     winner: winCalc(newBoard),
+            // });
+            disPatch({ type: "setWinner", to: winCalc(newBoard)});
         }}>
             {
                 state.board[index]? state.board[index] :

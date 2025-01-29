@@ -2,10 +2,10 @@ import React, { useContext } from 'react'
 import { GameContext } from './Game'
 
 export default function WinnerTitle() {
-  const { winner } = useContext(GameContext);
+  const { state } = useContext(GameContext);
   return (
-    <div className={`winner-title ${!winner? "hidden" : ""}`}>
-      {winner} is won
+    <div className={`winner-title ${!state.winner? "hidden" : ""}`}>
+      {state.winner} is won
     </div>
   )
 }

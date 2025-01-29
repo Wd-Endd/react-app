@@ -1,20 +1,25 @@
 import React, { createContext, useState } from 'react'
 import GameBoard from "./GameBoard"
 import ResetButton from './ResetButton'
-import { gameBoard } from '../../tictactoe ';
+// import { gameBoard } from '../../tictactoe ';
 import WinnerTitle from './WinnerTitle';
 
 const GameContext = createContext();
 
 export default function Game() {
-    const [board, updateBoard] = useState([...gameBoard]);
-    const [winner, setWinner] = useState(null);
+    // const [board, updateBoard] = useState([...gameBoard]);
+    // const [winner, setWinner] = useState(null);
+    const [state, setState] = useState({
+        board: Array(9).fill(null),
+        winner: null,
+    });
     // const [ticker, setTicker] = useState("X");
     return (
         <GameContext.Provider value={{
-            board, updateBoard,
-            winner, setWinner,
+            // board, updateBoard,
+            // winner, setWinner,
             // ticker, setTicker,
+            state, setState,
         }}>
             <div style={{
                 display: "flex",

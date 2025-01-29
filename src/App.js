@@ -1,21 +1,12 @@
 import { beautifulThumb } from "./.api";
 import Toggle from "./component/state/Toggle";
 import Thumnail from "./component/Thumbnail";
-import GameBoard from "./component/tictactoe/GameBoard";
+import Game from "./component/tictactoe/Game";
 
 function App() {
   return (
     <div>
-      <div style={{
-        display: "flex",
-        flexDirection: "rows",
-        padding: "50px",
-      }}>
-        <GameBoard />
-        <div style={{ display: "flex", flexDirection: "column", marginLeft: "100px" }}>
-          <div style={{ height: "10px" }}></div>
-        </div>
-      </div>
+      <Game />
 
       <div style={{ height: "200px"}}></div>
 

@@ -1,12 +1,15 @@
-import { beautifulThumb } from "./.api";
-import Toggle from "./component/state/Toggle";
-import Thumnail from "./component/Thumbnail";
-import Game from "./component/tictactoe/Game";
+// import { beautifulThumb } from "./.api";
+// import Toggle from "./component/state/Toggle";
+// import Thumnail from "./component/Thumbnail";
+// import Game from "./component/tictactoe/Game";
+
+import Card from "./component/card/Card";
 
 function App() {
   return (
     <div>
-      <Game />
+      <Card />
+      {/* <Game />
 
       <div style={{ height: "200px"}}></div>
 
@@ -24,7 +27,7 @@ function App() {
             title={item.title}
           />
         ))}
-      </div>
+      </div> */}
 
     </div>
   );

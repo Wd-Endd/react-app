@@ -72,6 +72,7 @@ export default function Card({ props }) {
             ${styles.cardAnchor} 
             ${currIndex < props.index? styles.next : ""}
         `}
+        
         >
             <StyledCard bg={props.bg}>
                 {/* <StyledBg src="https://wallpapersok.com/images/high/chill-anime-cloudy-sky-eif0wrbsj7tavmd0.webp" alt="" /> */}

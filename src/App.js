@@ -9,12 +9,13 @@ import list from "./component/card/api";
 import { createContext, useReducer } from "react";
 
 const CardContainer = styled.div`
-    /* display: flex; */
     position: relative;
-    /* width: 500px; */
-    /* flex-direction: column; */
-    /* align-items: center; */
-    /* justify-content: center; */
+    /* width: 1px; */
+    align-items: center;
+    justify-content: center;
+    /* overflow-x: hidden; */
+    /* perspective: 300px; */
+    border: 1px solid black;
 `;
 
 function cardReducer(state, action) {
@@ -38,8 +39,9 @@ function App() {
                 flexDirection: "column",
                 // alignContent: "center",
                 // alignItems: "center",
-                justifyContent: "center",
-                justifyItems: "center",
+                // justifyContent: "center",
+                // justifyItems: "center",
+                // perspective: "200px",
             }}>
                 <CardContainer>
                     {

@@ -4,11 +4,17 @@
 
 .cardAnchor {
     position: absolute;
+    /* right: 0;
+    left: 0;
+    margin: auto; */
+    margin-left: 50%;
+    /* margin-top: 50%; */
 
     transition: all 0.5s ease-out;
-    transform: translate3d(0, 0, 0);
+    transform: translateX(-50%) scale(1.0);
 }
 
 .cardAnchor.next {
-    transform: translateX(200px);
+    margin-left: 70vw;
+    /* transform: translateX(30vw) scale(0.9); */
 }

@@ -65,12 +65,12 @@ export default function Card({ props }) {
     
     return (
         <div
-        style={{
-            position: "absolute",
-        }}
+        // style={{
+        //     position: "absolute",
+        // }}
         className={`
             ${styles.cardAnchor} 
-            ${}
+            ${currIndex < props.index? styles.next : ""}
         `}
         >
             <StyledCard bg={props.bg}>

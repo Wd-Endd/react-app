@@ -7,9 +7,8 @@ const StyledCard = styled.div`
     height: 500px;
     aspect-ratio: 1/1;
     border-radius: 20px;
-    margin: 20px;
     padding: 25px;
-    background-image: url(https://w0.peakpx.com/wallpaper/196/579/HD-wallpaper-whale-in-the-sky-whale-in-stars-stars-sky-night-milky-star-lights-skies-clouds.jpg);
+    background-image: url(${(props) => props.bg});
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -38,7 +37,7 @@ const StyledInfo = styled.div`
     margin-right: 25px;
 
     backdrop-filter: blur(5px);
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(0, 0, 0, 0.2);
     /* border: 1px solid black; */
     border-radius: 20px;
     padding: 20px;
@@ -50,7 +49,7 @@ const StyledAvatar = styled.div`
     aspect-ratio: 1/1;
     border-radius: 50%;
 
-    background-image: url(https://img.tripi.vn/cdn-cgi/image/width=700,height=700/https://gcs.tripi.vn/public-tripi/tripi-feed/img/474092Pvt/anh-avatar-chill-lofi-cuc-dep_021443523.jpg);
+    background-image: url(${(props) => props.avt});
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -60,9 +59,9 @@ const StyledAvatar = styled.div`
 //     color: white;
 // `;
 
-export default function Card() {
+export default function Card({ props }) {
     return (
-        <StyledCard>
+        <StyledCard bg={props.bg}>
             {/* <StyledBg src="https://wallpapersok.com/images/high/chill-anime-cloudy-sky-eif0wrbsj7tavmd0.webp" alt="" /> */}
             {/* <StyledBg></StyledBg> */}
             <StyledInfo>
@@ -78,13 +77,13 @@ export default function Card() {
                         alignItems: "center",
                         gap: "10px"
                     }}>
-                        <StyledAvatar></StyledAvatar>
-                        <h3 className={styles.whiteText}>@Endd</h3>
+                        <StyledAvatar avt={props.avatar}></StyledAvatar>
+                        <h3 className={styles.whiteText}>@{props.author || "unknown"}</h3>
                     </div>
                     <h4 className={styles.whiteText}>2737</h4>
                 </div>
                 <label htmlFor="" className={styles.whiteText}>
-                    "Hẵy làm với tất cả đam mê và sự tận hưởng, bởi giá trị không chỉ nằm ở kết quả, mà còn trong từng khoảnh khắc bạn hòa mình vào hành trình."
+                    {props.slogan || ""}
                 </label>
             </StyledInfo>
         </StyledCard>

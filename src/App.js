@@ -3,13 +3,30 @@
 // import Thumnail from "./component/Thumbnail";
 // import Game from "./component/tictactoe/Game";
 
+import styled from "styled-components";
 import Card from "./component/card/Card";
+import list from "./component/card/api";
 
+const MainContent = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+`;
 function App() {
-  return (
-    <div>
-      <Card />
-      {/* <Game />
+    return (
+        <MainContent>
+            {
+                list.map((item, index) => (
+                    <Card
+                        props={{
+                            ...item,
+                            index: index
+                        }}
+                    />
+                ))
+            }
+            {/* <Game />
 
       <div style={{ height: "200px"}}></div>
 
@@ -29,8 +46,8 @@ function App() {
         ))}
       </div> */}
 
-    </div>
-  );
+        </MainContent>
+    );
 }
 
 export default App;

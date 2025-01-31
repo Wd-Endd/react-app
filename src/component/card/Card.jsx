@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from "styled-components"
 import styles from "./Card.module.css"
+import { AppContext } from '../../App';
 
 const StyledCard = styled.div`
     position: relative;
@@ -60,32 +61,44 @@ const StyledAvatar = styled.div`
 // `;
 
 export default function Card({ props }) {
+    const { currIndex } = useContext(AppContext);
+    
     return (
-        <StyledCard bg={props.bg}>
-            {/* <StyledBg src="https://wallpapersok.com/images/high/chill-anime-cloudy-sky-eif0wrbsj7tavmd0.webp" alt="" /> */}
-            {/* <StyledBg></StyledBg> */}
-            <StyledInfo>
-                <div style={{
-                    display: "flex",
-                    flexDirection: "row",
-                    justifyContent: "space-between",
-
-                }}>
+        <div
+        style={{
+            position: "absolute",
+        }}
+        className={`
+            ${styles.cardAnchor} 
+            ${}
+        `}
+        >
+            <StyledCard bg={props.bg}>
+                {/* <StyledBg src="https://wallpapersok.com/images/high/chill-anime-cloudy-sky-eif0wrbsj7tavmd0.webp" alt="" /> */}
+                {/* <StyledBg></StyledBg> */}
+                <StyledInfo>
                     <div style={{
                         display: "flex",
                         flexDirection: "row",
-                        alignItems: "center",
-                        gap: "10px"
+                        justifyContent: "space-between",
+
                     }}>
-                        <StyledAvatar avt={props.avatar}></StyledAvatar>
-                        <h3 className={styles.whiteText}>@{props.author || "unknown"}</h3>
+                        <div style={{
+                            display: "flex",
+                            flexDirection: "row",
+                            alignItems: "center",
+                            gap: "10px"
+                        }}>
+                            <StyledAvatar avt={props.avatar}></StyledAvatar>
+                            <h3 className={styles.whiteText}>@{props.author || "unknown"}</h3>
+                        </div>
+                        <h4 className={styles.whiteText}>2737</h4>
                     </div>
-                    <h4 className={styles.whiteText}>2737</h4>
-                </div>
-                <label htmlFor="" className={styles.whiteText}>
-                    {props.slogan || ""}
-                </label>
-            </StyledInfo>
-        </StyledCard>
+                    <label htmlFor="" className={styles.whiteText}>
+                        {props.slogan || ""}
+                    </label>
+                </StyledInfo>
+            </StyledCard>
+        </div>
     )
 }

@@ -6,48 +6,77 @@
 import styled from "styled-components";
 import Card from "./component/card/Card";
 import list from "./component/card/api";
+import { createContext, useReducer } from "react";
 
-const MainContent = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+const CardContainer = styled.div`
+    /* display: flex; */
+    position: relative;
+    /* width: 500px; */
+    /* flex-direction: column; */
+    /* align-items: center; */
+    /* justify-content: center; */
 `;
+
+function cardReducer(state, action) {
+    switch (action) {
+        default:
+            return state;
+    }
+};
+
+const AppContext = createContext();
+
 function App() {
+    const [currIndex, dispatch] = useReducer(cardReducer, 0);
     return (
-        <MainContent>
-            {
-                list.map((item, index) => (
-                    <Card
-                        props={{
-                            ...item,
-                            index: index
-                        }}
-                    />
-                ))
-            }
-            {/* <Game />
+        <AppContext.Provider value={{
+            currIndex,
+            dispatch
+        }}>
+            <div style={{
+                display: "flex",
+                flexDirection: "column",
+                // alignContent: "center",
+                // alignItems: "center",
+                justifyContent: "center",
+                justifyItems: "center",
+            }}>
+                <CardContainer>
+                    {
+                        list.map((item, index) => (
+                            <Card
+                                props={{
+                                    ...item,
+                                    index: index
+                                }}
+                            />
+                        ))
+                    }
+                    {/* <Game />
 
-      <div style={{ height: "200px"}}></div>
+        <div style={{ height: "200px"}}></div>
 
-      <Toggle />
+        <Toggle />
 
-      <div style={{
-        height: "10px"
-      }}></div>
+        <div style={{
+            height: "10px"
+        }}></div>
 
-      <div className="content-grid">
-        {beautifulThumb.map(item => (
-          <Thumnail
-            id={item.id}
-            img={item.img}
-            title={item.title}
-          />
-        ))}
-      </div> */}
+        <div className="content-grid">
+            {beautifulThumb.map(item => (
+            <Thumnail
+                id={item.id}
+                img={item.img}
+                title={item.title}
+            />
+            ))}
+        </div> */}
 
-        </MainContent>
+                </CardContainer>
+            </div>
+        </AppContext.Provider>
     );
 }
 
 export default App;
+export { AppContext };

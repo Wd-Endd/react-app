@@ -1,0 +1,67 @@
+.card-bg {
+  position: relative;
+  /* border: 1px solid black; */
+  /* width: 32%; */
+
+  width: clamp(200px, 500px, 50%);
+  aspect-ratio: 1/1;
+  overflow: hidden;
+  border-radius: 20px;
+
+  background-image: var(--bg);
+  background-size: cover;
+  background-position: center;
+
+  .card-info {
+    position: absolute;
+    padding: 10px;
+
+    width: 95%;
+    height: 30%;
+    margin-left: 50%;
+    margin-top: 70%;
+    transform: translateX(-50%);
+    border-radius: 20px;
+
+
+    background-color: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(2px);
+
+    .top {
+      display: flex;
+      flex-direction: row;
+      padding: 12px;
+      gap: 7px;
+
+      align-items: center;
+
+      height: auto;
+      max-height: 16%;
+
+
+      .avt {
+        height: 30px;
+        aspect-ratio: 1/1;
+        background-image: var(--avt);
+        background-size: cover;
+        background-position: center;
+        border: 2px solid rgb(255,21,21);
+        border-radius: 50%;
+      }
+
+      p {
+        color: white;
+      }
+
+    }
+
+    .bot {
+      padding: 5px;
+      overflow: hidden;
+      p {
+        color: white;
+        font-size: 14px;
+      }
+    }
+  }
+}

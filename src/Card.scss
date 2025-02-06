@@ -1,16 +1,39 @@
-.card-bg {
-  position: relative;
-  /* border: 1px solid black; */
-  /* width: 32%; */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-  width: clamp(200px, 500px, 50%);
+@function pow($base, $expo) {
+  $result: 1;
+  @for $i from 1 through $expo {
+    $result: $result * $base;
+  }
+  @return $result;
+}
+
+@function next-transform-calc () {
+  $factor: 2 - (1 / (pow(2, $next) - 1));
+  $translate-x: 5 * $factor;
+  @return "translateX(#{$translate-x})"
+}
+
+.card-bg {
+  z-index: 2;
+  position: relative;
+  border: 1px solid black;
+  width: 32%; 
+
+  width: 100%;
   aspect-ratio: 1/1;
+  
   overflow: hidden;
   border-radius: 20px;
 
   background-image: var(--bg);
   background-size: cover;
   background-position: center;
+  box-shadow: 5px 10px 15px #00000044;
+
+  transition: all 0.75s ease-in-out;
 
   .card-info {
     position: absolute;
@@ -22,6 +45,8 @@
     margin-top: 70%;
     transform: translateX(-50%);
     border-radius: 20px;
+
+    overflow: auto;
 
 
     background-color: rgba(0, 0, 0, 0.25);
@@ -64,4 +89,8 @@
       }
     }
   }
+    /* & .next {
+    z-index: 1;
+    transform: next-transform-calc;
+  } */
 }

@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.dev {
+  border: 3px solid #ff000033;
+  background-color: #ff00ff33;
+  /* opacity: 50%; */
+}

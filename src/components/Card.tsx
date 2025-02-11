@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import "./Card.scss"
-import list from "./api.js"
-import { AppContext } from "./App"
+import list from "../API"
+import { AppContext } from "../App"
 
 interface Var extends React.CSSProperties {
   '--avt'?: string,
@@ -45,7 +45,6 @@ function nextCalc(next: number, maxZ: number) {
   if (next < 0 ) {
     z = maxZ + next;
     translateX = -(translateX);
-    scale = (scale);
     opa = ((1 / maxZ) * z);
   }
   
@@ -59,7 +58,7 @@ function nextCalc(next: number, maxZ: number) {
 }
 
 function CardChild({props}: Record<string, any>) {
-  const { selectedIndex } = useContext(AppContext);
+  const { selectedIndex, disPatch, setPlay } = useContext(AppContext);
   const next = props.index - selectedIndex;
   const nextStyle = nextCalc(next, props.maxIndex);
   // console.log(selectedIndex, props.index);
@@ -77,27 +76,33 @@ function CardChild({props}: Record<string, any>) {
         "https://wallpapers.com/images/high/anime-date-a-live-gentle-origami-two3nxnbwpr2ihdk.webp"
       })`
     } as Var}
+    onClick={() => {
+      setPlay(true)
+      disPatch({ type: "SELECT", payload: props.index})
+    }}
     >
-      <div className="card-info">
-         <div className="top">
-          <div
-          className="avt"
-          style={{
-            '--avt': `url(${props.avatar ||
-              'https://img.tripi.vn/cdn-cgi/image/width=700,height=700/https://gcs.tripi.vn/public-tripi/tripi-feed/img/474092Pvt/anh-avatar-chill-lofi-cuc-dep_021443523.jpg'
-            })`
-          } as Var}
-          ></div>
-          <p>@{props.author || 'unknown'}</p>
-        </div>
-        <div className="bot">
-          <p>
-          {
-            props.slogan ||
-            'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure velit dolorum non minima nesciunt, quam obcaecati, consequatur aspernatur ratione aliquam mollitia omnis, unde ipsam libero cupiditate. Vel et distinctio aspernatur?'
-          }
-          </p>
-        </div>
+      <div className="card-info" style={selectedIndex !== props.index ? {
+        opacity: 0,
+      } : {}}>
+          <div className="top">
+            <div
+            className="avt"
+            style={{
+              '--avt': `url(${props.avatar ||
+                'https://img.tripi.vn/cdn-cgi/image/width=700,height=700/https://gcs.tripi.vn/public-tripi/tripi-feed/img/474092Pvt/anh-avatar-chill-lofi-cuc-dep_021443523.jpg'
+              })`,
+            } as Var}
+            ></div>
+            <p>@{props.author || 'unknown'}</p>
+          </div>
+          <div className="bot">
+            <p>
+            {
+              props.slogan ||
+              'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure velit dolorum non minima nesciunt, quam obcaecati, consequatur aspernatur ratione aliquam mollitia omnis, unde ipsam libero cupiditate. Vel et distinctio aspernatur?'
+            }
+            </p>
+          </div>
       </div>
     </div>
   )

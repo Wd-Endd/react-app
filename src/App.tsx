@@ -1,29 +1,56 @@
-import Button from './Button';
-import Card from './Card';
-import React, { createContext, useReducer } from 'react';
+import FullToggle from './components/FullToggle';
+import Header from './components/Header';
+import Button from './components/Button';
+import Card from './components/Card';
+import React, { createContext, useReducer, useEffect, useState } from 'react';
 import "./App.scss";
-
+import list from "./API";
+import "./events/ClassEvent.ts"
 
 const AppContext = createContext(Object.create({}));
-function indexReducer(state: number, action: string) {
-  switch (action) {
+
+export interface indexAction {
+  type: string;
+  payload?: number;
+}
+
+function indexReducer(state: number, action: indexAction) {
+  switch (action.type) {
       case "NEXT":
-        return state +  1;
+        return state + 1;
       case "PREV":
-        return state -  1;
+        return state - 1;
+      case "SELECT":
+        return typeof action.payload === "number" ? action.payload : state;
     default:
       return state;
   }
 }
 
 function App() {
-  const [ selectedIndex, disPatch ] = useReducer(indexReducer, 2)
+  const [ selectedIndex, disPatch ] = useReducer(indexReducer, 0);
+  const [ play, setPlay ] = useState(true);
+  useEffect(() => {
+    document.body.style.backgroundImage = `url(${list[selectedIndex].bg})`
+  }, [selectedIndex]);
+  useEffect(() => {
+  }, [play]);
+
   return (
-    <AppContext.Provider value={{ selectedIndex, disPatch }}>
-      <div className="!flex !items-center !justify-center !flex-row p-3 !pt-[30px]">
-        <div className="!w-full !max-w-[900px] !flex">
+    <AppContext.Provider value={{
+      selectedIndex,
+      disPatch,
+      play,
+      setPlay,
+    }}
+    >
+      <Header />
+      <FullToggle />
+      <div className="blur-bg"></div>
+      <div className="dev !flex !items-center !justify-center !flex-row p-3 !pt-[30px] !pt-[70px]">
+        <div className="dev !w-full !max-w-[900px] !flex">
           <div className="!flex-1 !flex">
-            <div className="!w-1/2 !aspect-square !flex !flex-col !justify-center">
+            <div className="dev !w-1/2 !aspect-square !flex !flex-col !justify-center">
               <Button next={false} content="<"/>
             </div>
           </div>
@@ -31,7 +58,7 @@ function App() {
             <Card />
           </div>
           <div className="!flex-1 !flex !justify-end">
-            <div className="!w-1/2 !aspect-square !flex !flex-col !justify-center">
+            <div className="dev !w-1/2 !aspect-square !flex !flex-col !justify-center">
               <Button next={true} content=">"/>
             </div>
           </div>

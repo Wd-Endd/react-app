@@ -58,7 +58,7 @@ function nextCalc(next: number, maxZ: number) {
 }
 
 function CardChild({props}: Record<string, any>) {
-  const { selectedIndex, disPatch, setPlay } = useContext(AppContext);
+  const { selectedIndex, disPatch, setViewMode } = useContext(AppContext);
   const next = props.index - selectedIndex;
   const nextStyle = nextCalc(next, props.maxIndex);
   // console.log(selectedIndex, props.index);
@@ -77,7 +77,7 @@ function CardChild({props}: Record<string, any>) {
       })`
     } as Var}
     onClick={() => {
-      setPlay(true)
+      setViewMode(true)
       disPatch({ type: "SELECT", payload: props.index})
     }}
     >

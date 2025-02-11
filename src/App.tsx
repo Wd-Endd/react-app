@@ -5,7 +5,7 @@ import Card from './components/Card';
 import React, { createContext, useReducer, useEffect, useState } from 'react';
 import "./App.scss";
 import list from "./API";
-import "./events/ClassEvent.ts"
+import { convertingViewMode, convertingDefaultMode } from "./events/OnViewMode";
 
 const AppContext = createContext(Object.create({}));
 
@@ -29,19 +29,24 @@ function indexReducer(state: number, action: indexAction) {
 
 function App() {
   const [ selectedIndex, disPatch ] = useReducer(indexReducer, 0);
-  const [ play, setPlay ] = useState(true);
+  const [ viewMode, setViewMode ] = useState(true);
   useEffect(() => {
     document.body.style.backgroundImage = `url(${list[selectedIndex].bg})`
   }, [selectedIndex]);
   useEffect(() => {
-  }, [play]);
+    if (viewMode) {
+      convertingViewMode();
+    } else {
+      convertingDefaultMode();
+    }
+  }, [viewMode]);
 
   return (
     <AppContext.Provider value={{
       selectedIndex,
       disPatch,
-      play,
-      setPlay,
+      viewMode,
+      setViewMode,
     }}
     >
       <Header />
@@ -49,7 +54,7 @@ function App() {
       <div className="blur-bg"></div>
       <div className="dev !flex !items-center !justify-center !flex-row p-3 !pt-[30px] !pt-[70px]">
         <div className="dev !w-full !max-w-[900px] !flex">
-          <div className="!flex-1 !flex">
+          <div className="view-mode-only !flex-1 !flex">
             <div className="dev !w-1/2 !aspect-square !flex !flex-col !justify-center">
               <Button next={false} content="<"/>
             </div>
@@ -57,7 +62,7 @@ function App() {
           <div className="dev !flex !items-center !h-[400px] !p-2">
             <Card />
           </div>
-          <div className="!flex-1 !flex !justify-end">
+          <div className="view-mode-only !flex-1 !flex !justify-end ">
             <div className="dev !w-1/2 !aspect-square !flex !flex-col !justify-center">
               <Button next={true} content=">"/>
             </div>

@@ -5,7 +5,9 @@ import Card from './components/Card';
 import React, { createContext, useReducer, useEffect, useState } from 'react';
 import "./App.scss";
 import list from "./API";
-import { convertingViewMode, convertingDefaultMode } from "./events/OnViewMode";
+import ViewModeTransform from "./events/ViewModeTransform";
+import eruda from "eruda";
+
 
 const AppContext = createContext(Object.create({}));
 
@@ -34,12 +36,11 @@ function App() {
     document.body.style.backgroundImage = `url(${list[selectedIndex].bg})`
   }, [selectedIndex]);
   useEffect(() => {
-    if (viewMode) {
-      convertingViewMode();
-    } else {
-      convertingDefaultMode();
-    }
+    ViewModeTransform(viewMode)
   }, [viewMode]);
+  useEffect(() => {
+    if (process.env.NODE_ENV === "development") { eruda.init(); }
+  }, []);
 
   return (
     <AppContext.Provider value={{
@@ -52,18 +53,18 @@ function App() {
       <Header />
       <FullToggle />
       <div className="blur-bg"></div>
-      <div className="dev !flex !items-center !justify-center !flex-row p-3 !pt-[30px] !pt-[70px]">
-        <div className="dev !w-full !max-w-[900px] !flex">
-          <div className="view-mode-only !flex-1 !flex">
-            <div className="dev !w-1/2 !aspect-square !flex !flex-col !justify-center">
+      <div className="dev flex items-center justify-center flex-row p-3 pt-[30px] pt-[70px]">
+        <div className="dev w-full max-w-[900px] flex">
+          <div data-onlyViewMode className="dev flex-1 flex">
+            <div className="dev w-1/2 aspect-square flex flex-col justify-center">
               <Button next={false} content="<"/>
             </div>
           </div>
-          <div className="dev !flex !items-center !h-[400px] !p-2">
+          <div data-cardAnchor className="dev flex items-center h-[400px] p-2">
             <Card />
           </div>
-          <div className="view-mode-only !flex-1 !flex !justify-end ">
-            <div className="dev !w-1/2 !aspect-square !flex !flex-col !justify-center">
+          <div data-onlyViewMode className="flex-1 flex justify-end ">
+            <div className="dev w-1/2 aspect-square flex flex-col justify-center">
               <Button next={true} content=">"/>
             </div>
           </div>

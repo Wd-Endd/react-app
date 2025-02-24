@@ -10,7 +10,7 @@ interface Var extends React.CSSProperties {
 
 export default function Card() {
   return (
-    <div className="card-container !relative !h-full !aspect-square">
+    <div className="card-container relative h-full aspect-square">
       {
         list.map((item, index) => (
           <CardChild props={{
@@ -64,7 +64,7 @@ function CardChild({props}: Record<string, any>) {
   // console.log(selectedIndex, props.index);
   return (
     <div
-    className={`card-bg !absolute`}
+    className={`card-bg`}
     style={{
       // '--max-z': props.maxIndex + 1,
       // '--next': props.index - selectedIndex,

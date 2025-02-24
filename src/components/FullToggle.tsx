@@ -5,8 +5,8 @@ export default function FullToggle() {
   const { /* play, */ setViewMode } = useContext(AppContext);
   return (
     // play? (
-      <button
-      className="view-mode-only !z-50 !text-white !text-4xl !fixed !left-14 !top-14"
+      <button data-onlyViewMode
+      className="z-50 text-white text-4xl fixed left-14 top-14"
       onClick={() => {
         setViewMode(false)
       }}

@@ -13,7 +13,7 @@ export default function Button(props: Record<string, any>) {
 
   return (
     <button
-    className="!w-full !aspect-square !z-50 !text-7xl text-white active:translate-y-1.5"
+    className="w-full aspect-square z-50 text-7xl text-white active:translate-y-1.5"
     onClick={() => {
       disPatch(props.next? { type: "NEXT" } as indexAction : { type: "PREV" } as indexAction );
     }}>

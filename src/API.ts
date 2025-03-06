@@ -30,6 +30,36 @@ const list = [
         slogan: "Đừng mãi nhìn về dòng nước đã chảy qua, hãy đắp đê vững chắc để mùa lũ sau vẫn đầy ắp phù sa.",
         bg: "https://gstatic.gvn360.com/2022/01/Phao-hoa_-24-2048x946.jpg",
     },
+    // {
+    //     author: "programmer",
+    //     avatar: "http://m.gettywallpapers.com/wp-content/uploads/2023/05/Chill-Anime-Boy-Profile-Pic.jpg",
+    //     slogan: "Đừng mãi nhìn về dòng nước đã chảy qua, hãy đắp đê vững chắc để mùa lũ sau vẫn đầy ắp phù sa.",
+    //     bg: "https://gstatic.gvn360.com/2022/01/Phao-hoa_-24-2048x946.jpg",
+    // },
+    // {
+    //     author: "programmer",
+    //     avatar: "http://m.gettywallpapers.com/wp-content/uploads/2023/05/Chill-Anime-Boy-Profile-Pic.jpg",
+    //     slogan: "Đừng mãi nhìn về dòng nước đã chảy qua, hãy đắp đê vững chắc để mùa lũ sau vẫn đầy ắp phù sa.",
+    //     bg: "https://gstatic.gvn360.com/2022/01/Phao-hoa_-24-2048x946.jpg",
+    // },
+    // {
+    //     author: "programmer",
+    //     avatar: "http://m.gettywallpapers.com/wp-content/uploads/2023/05/Chill-Anime-Boy-Profile-Pic.jpg",
+    //     slogan: "Đừng mãi nhìn về dòng nước đã chảy qua, hãy đắp đê vững chắc để mùa lũ sau vẫn đầy ắp phù sa.",
+    //     bg: "https://gstatic.gvn360.com/2022/01/Phao-hoa_-24-2048x946.jpg",
+    // },
+    // {
+    //     author: "programmer",
+    //     avatar: "http://m.gettywallpapers.com/wp-content/uploads/2023/05/Chill-Anime-Boy-Profile-Pic.jpg",
+    //     slogan: "Đừng mãi nhìn về dòng nước đã chảy qua, hãy đắp đê vững chắc để mùa lũ sau vẫn đầy ắp phù sa.",
+    //     bg: "https://gstatic.gvn360.com/2022/01/Phao-hoa_-24-2048x946.jpg",
+    // },
+    // {
+    //     author: "programmer",
+    //     avatar: "http://m.gettywallpapers.com/wp-content/uploads/2023/05/Chill-Anime-Boy-Profile-Pic.jpg",
+    //     slogan: "Đừng mãi nhìn về dòng nước đã chảy qua, hãy đắp đê vững chắc để mùa lũ sau vẫn đầy ắp phù sa.",
+    //     bg: "https://gstatic.gvn360.com/2022/01/Phao-hoa_-24-2048x946.jpg",
+    // },
 ];
 
 export default list;

@@ -1,11 +1,29 @@
+.fadeTrans {
+  transition: opacity 0.7s ease-in-out !important;
+}
 .fadeOut {
   opacity: 0 !important;
-  transition: opacity 1s ease-in-out;
-}
-.unFade {
-  transition: opacity 1s ease-in-out;
 }
 
 .hidden {
   display: none !important;
+}
+.blocking {
+  pointer-events: none !important;
+}
+
+.flexTrans {
+  transition: opacity 0.7s ease-in-out, flex 1s ease-in-out !important;
+}
+.flexLess {
+  flex: 0 !important;
+}
+.flexing {
+  flex: 0 !important;
+}
+
+.cardsFlexing {
+  opacity: 1 !important;
+  transform: scale(0.9) !important;
+  box-shadow: none !important;
 }

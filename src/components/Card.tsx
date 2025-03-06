@@ -1,14 +1,41 @@
-import React, { useContext } from 'react'
+import FullToggle from './FullToggle';
+import Button from './Button';
+import React, { useContext, useEffect, useState, useMemo } from 'react'
 import "./Card.scss"
+import "../App.scss"
 import list from "../API"
 import { AppContext } from "../App"
 
-interface Var extends React.CSSProperties {
-  '--avt'?: string,
-  '--bg'?: string,
+// interface Var extends React.CSSProperties {
+//   '--avt'?: string,
+//   '--bg'?: string,
+// }
+
+export default function CardGallery() {
+  return (
+    <div className="card-dialog flex flex-col items-center justify-center flex-row">
+      <FullToggle />
+      <div className="dialog-header w-full h-16">Sưu Tầm</div>
+      <div className="card-gallery overflow-auto w-full max-w-[900px] flex">
+        <div className="only-view-mode card-padding flex-1 flex">
+          <div className="w-1/2 aspect-square flex flex-col justify-center">
+            <Button next={false} content="<"/>
+          </div>
+        </div>
+        <div className="flex items-center h-[400px] p-2">
+          <Card />
+        </div>
+        <div className="only-view-mode flex-1 flex justify-end ">
+          <div className="w-1/2 aspect-square flex flex-col justify-center">
+            <Button next={true} content=">"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
 }
 
-export default function Card() {
+function Card() {
   return (
     <div className="card-container relative h-full aspect-square">
       {
@@ -58,40 +85,50 @@ function nextCalc(next: number, maxZ: number) {
 }
 
 function CardChild({props}: Record<string, any>) {
-  const { selectedIndex, disPatch, setViewMode } = useContext(AppContext);
+  const { selectedIndex, disPatch, setViewMode, viewMode } = useContext(AppContext);
   const next = props.index - selectedIndex;
-  const nextStyle = nextCalc(next, props.maxIndex);
-  // console.log(selectedIndex, props.index);
+  const nextStyle = useMemo(() => (nextCalc(next, props.maxIndex)), [next, props.maxIndex]);
+
+  const cardStyles = useMemo(() => ({
+    transform: `translateX(${nextStyle[1]}rem) scale(${nextStyle[2]})`,
+    zIndex: nextStyle[0],
+    opacity: nextStyle[3],
+  }), [nextStyle]);
+  const cardStylesFlexing = useMemo(() => ({
+    transform: `scale(0.8) translateX(${110 * props.index}%)`,
+    zIndex: nextStyle[0],
+    boxShadow: "none",
+    opacity: 1,
+  }), [props.index, nextStyle]);
+  const [dynamicStyle, setdynamicStyle] = useState({ ...cardStylesFlexing } as object);
+
+  useEffect(() => {
+    if (viewMode) setdynamicStyle({ ...cardStyles });
+    else {
+      setTimeout(() => setdynamicStyle({ ...cardStylesFlexing }),
+      1000);
+    }
+  }, [viewMode, cardStyles, cardStylesFlexing])
+
   return (
     <div
-    className={`card-bg`}
+    className={`card-bg card-${props.index}`}
     style={{
-      // '--max-z': props.maxIndex + 1,
-      // '--next': props.index - selectedIndex,
-      transform: `translateX(${nextStyle[1]}rem) scale(${nextStyle[2]})`,
-      zIndex: nextStyle[0],
-      opacity: nextStyle[3],
-      '--bg': `url(${
-        props.bg || 
-        "https://wallpapers.com/images/high/anime-date-a-live-gentle-origami-two3nxnbwpr2ihdk.webp"
-      })`
-    } as Var}
+      ...dynamicStyle,
+      backgroundImage: `url(${list[props.index].bg})`,
+    }}
     onClick={() => {
       setViewMode(true)
       disPatch({ type: "SELECT", payload: props.index})
     }}
     >
-      <div className="card-info" style={selectedIndex !== props.index ? {
+      <div className="card-info only-view-mode" style={selectedIndex !== props.index ? {
         opacity: 0,
       } : {}}>
           <div className="top">
             <div
             className="avt"
-            style={{
-              '--avt': `url(${props.avatar ||
-                'https://img.tripi.vn/cdn-cgi/image/width=700,height=700/https://gcs.tripi.vn/public-tripi/tripi-feed/img/474092Pvt/anh-avatar-chill-lofi-cuc-dep_021443523.jpg'
-              })`,
-            } as Var}
+            style={ { backgroundImage: `url(${list[props.index].avatar})`, } }
             ></div>
             <p>@{props.author || 'unknown'}</p>
           </div>

@@ -1,12 +1,11 @@
-import FullToggle from './components/FullToggle';
 import Header from './components/Header';
-import Button from './components/Button';
-import Card from './components/Card';
+import CardGallery from './components/Card';
 import React, { createContext, useReducer, useEffect, useState } from 'react';
 import "./App.scss";
 import list from "./API";
 import ViewModeTransform from "./events/ViewModeTransform";
 import eruda from "eruda";
+// import refStore from "./refStore";
 
 
 const AppContext = createContext(Object.create({}));
@@ -36,7 +35,11 @@ function App() {
     document.body.style.backgroundImage = `url(${list[selectedIndex].bg})`
   }, [selectedIndex]);
   useEffect(() => {
-    ViewModeTransform(viewMode)
+    if (!viewMode) {
+      ViewModeTransform.start();
+    } else {
+      ViewModeTransform.destroy();
+    }
   }, [viewMode]);
   useEffect(() => {
     if (process.env.NODE_ENV === "development") { eruda.init(); }
@@ -48,27 +51,12 @@ function App() {
       disPatch,
       viewMode,
       setViewMode,
-    }}
+    }} 
     >
       <Header />
-      <FullToggle />
       <div className="blur-bg"></div>
-      <div className="dev flex items-center justify-center flex-row p-3 pt-[30px] pt-[70px]">
-        <div className="dev w-full max-w-[900px] flex">
-          <div data-onlyViewMode className="dev flex-1 flex">
-            <div className="dev w-1/2 aspect-square flex flex-col justify-center">
-              <Button next={false} content="<"/>
-            </div>
-          </div>
-          <div data-cardAnchor className="dev flex items-center h-[400px] p-2">
-            <Card />
-          </div>
-          <div data-onlyViewMode className="flex-1 flex justify-end ">
-            <div className="dev w-1/2 aspect-square flex flex-col justify-center">
-              <Button next={true} content=">"/>
-            </div>
-          </div>
-        </div>
+      <div className="content-bg h-screen p-10">
+        <CardGallery />
       </div>
     </AppContext.Provider>
   );

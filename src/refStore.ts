@@ -1,5 +1,7 @@
-import React, { createRef } from "react";
+import { createRef } from "react";
 
-export const refStore = {
-  
+const refStore = {
+  flexLessElement: createRef<HTMLDivElement>(),
 };
+
+export default refStore
